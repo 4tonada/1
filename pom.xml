@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>Java</groupId>
+    <artifactId>Java</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+</project>public class Board {
+        StringBuilder vertical;
+
+        public Board() {
+        this.vertical = new StringBuilder();
+        }
+
+        public String paintSmall(int width, int height) {
+        if(vertical.length() > 0) {
+        vertical.delete(0, vertical.length() - 1);
+        }
+
+        for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+        if ((i + j) % 2 == 0) {
+        vertical.append(" x");
+        } else {
+        vertical.append("  ");
+        }
+        }
+        vertical.append('\n');
+        }
+        return vertical.toString();
+        }
+
+        public static void main(String[] args) {
+        Board board = new Board();
+        System.out.println(board.paintSmall(5, 4));
+
+        System.out.println(board.paintSmall(9, 8));
+
+        System.out.println(board.paintSmall(15, 14));
+
+        }
+
+        }
